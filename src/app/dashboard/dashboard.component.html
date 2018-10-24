@@ -1,3 +1,29 @@
-<p>
-  dashboard works!
-</p>
+<form class = "ui large form segment">
+  <h3 class="ui header">Names DataBase</h3>
+
+  <div class = "field">
+    <label for="firstName">First Name</label>
+    <input name = "firstName" id = "firstName" #newFirstName>
+
+  </div>
+
+  <div class = "field">
+    <label for="lastName">Last Name</label>
+    <input name = "lastName" id="lastName" #newLastName>
+  </div>
+
+  <button (click) = "searchName(newFirstName, newLastName)"
+      class = "ui positive right floated button">Search Name</button>
+  <button (click) = "addName(newFirstName, newLastName)"
+      class = "ui positive right floated button">Add Name</button>
+</form>
+
+<div *ngIf = "missingFirst">
+  <div>Missing firstname:</div><span><button (click) = "addName(newFirstName, newLastName)">Add Name?</button></span>
+  
+</div>
+
+<div *ngFor = "let person of searches">
+  {{ person }}
+
+</div>
